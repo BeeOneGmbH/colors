@@ -1,10 +1,10 @@
 {
   "main": {
-    "title": "Primary and Secondary Colour Definitions",
+    "title": "<data value='1st'>Primary</data> and <data value='2nd'>Secondary</data> Colour Definitions",
     "description": "Use these colours for the main elements."
   },
   "additional": {
-    "title": "Additional Colour Definitions",
+    "title": "<data value='3rd'>Additional</data> Colour Definitions",
     "description": "Use these colours for small elements and exceptions only."
   }
 }

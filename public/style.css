@@ -89,6 +89,11 @@ svg {
     font-size: inherit;
     font-weight: inherit;
   }
+  data[value="1st"]::after,
+  td:first-child:not(:empty) + td::after {
+    content: "*";
+    color: #aabacc;
+  }
   tr {
     margin: .375em 0;
     padding-left: 3mm;
@@ -97,11 +102,11 @@ svg {
   td {
     display: inline-block;
   }
-  tr > :nth-child(1) {
-    width: 20mm;
+  tr > :nth-child(2) {
+    width: 21mm;
   }
   h2 + p,
-  tr > :last-child {
+  tr > :first-child {
     display: none;
   }
   code {
@@ -199,10 +204,10 @@ svg {
   tr {
     margin-bottom: 2em;
   }
-  #night-mode ~ main [style="border-color:#ffffff"] td:last-child {
+  #night-mode ~ main [style="border-color:#ffffff"] td:first-child {
     border-color: #000;
   }
-  #night-mode:checked ~ main [style="border-color:#000000"] td:last-child {
+  #night-mode:checked ~ main [style="border-color:#000000"] td:first-child {
     border-color: #fff;
   }
 
@@ -276,13 +281,16 @@ svg {
     padding-bottom: 1px;
   }
   tr {
+    display: flex;
+    flex-direction: column-reverse;
     margin-bottom: 1px;
     height: 6.5em;
     margin-left: -1em;
     padding: 1em 0 1em 1em;
     border-left-width: 6.5em;
+    line-height: 1.5em;
   }
-  td:last-child:empty::before {
+  td:first-child:empty::before {
     content: "\a0";
   }
   .description::before {
@@ -324,7 +332,7 @@ svg {
   [style="border-color:#9e0000"] {
     clear: left;
   }
-  td:last-child {
+  td:first-child {
     overflow: hidden;
     position: absolute;
     bottom: 100%;

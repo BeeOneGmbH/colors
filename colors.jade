@@ -28,18 +28,21 @@ html(lang="en-UK")
       main.container
         each subset in Object.keys(meta)
           section.colors(class="colors-#{subset}")
-            h2= meta[subset].title
-            p= meta[subset].description
+            h2!= meta[subset].title
+            p!= meta[subset].description
             table
               thead
                 tr
+                  th Name
                   th Hex
                   th RGB
-                  th Additional information
               tbody
                 each color in colors
                   if subset === (color.type || "additional")
                     tr(style="border-color:#{color.value}")
+                      td
+                        if color.name
+                          span.description= color.name
                       td
                         i #
                         code= color.value.slice(1)
@@ -51,9 +54,6 @@ html(lang="en-UK")
                         i ,
                         = parseInt(color.value.slice(5, 7), 16)
                         i )
-                      td
-                        if color.name
-                          span.description= color.name
       footer.container(role="contentinfo")
         p.build
           | Made with 
