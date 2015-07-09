@@ -9,7 +9,6 @@ html {
 }
 
 body {
-  position: relative;
   max-width: 580px;
   margin: 0 auto;
   padding: 20px;
@@ -34,8 +33,9 @@ abbr {
 }
 
 h2 + p,
-.description::before,
-.description::after,
+data[value="1st"]::after,
+td::before,
+td::after,
 i {
   color: #aabacc;
   font-style: inherit;
@@ -90,23 +90,26 @@ svg {
     font-weight: inherit;
   }
   data[value="1st"]::after,
-  td:first-child:not(:empty) + td::after {
+  td:last-child:not(:empty)::after {
     content: "*";
-    color: #aabacc;
   }
   tr {
     margin: .375em 0;
-    padding-left: 3mm;
     border-left-width: 15mm;
   }
   td {
     display: inline-block;
+    margin-left: 4mm;
   }
-  tr > :nth-child(2) {
-    width: 21mm;
+  td:last-child {
+    font-size: 0;
+    margin-left: 2mm;
   }
-  h2 + p,
-  tr > :first-child {
+  td:last-child:not(:empty)::after {
+    vertical-align: -.4rem;
+    font-size: 1rem;
+  }
+  h2 + p {
     display: none;
   }
   code {
@@ -170,7 +173,6 @@ svg {
   }
 
   h1 {
-    position: relative;
     margin-top: 0;
     margin-bottom: 0;
     background: url(bg.jpg) center center no-repeat #313a45;
@@ -204,10 +206,10 @@ svg {
   tr {
     margin-bottom: 2em;
   }
-  #night-mode:not(:checked) ~ main [style="border-color:#ffffff"] td:first-child {
+  #night-mode:not(:checked) ~ main [style="border-color:#ffffff"] td:last-child {
     border-color: #000;
   }
-  #night-mode:checked ~ main [style="border-color:#000000"] td:first-child {
+  #night-mode:checked ~ main [style="border-color:#000000"] td:last-child {
     border-color: #fff;
   }
 
@@ -281,7 +283,6 @@ svg {
     padding-bottom: 1px;
   }
   tr {
-    position: relative;
     margin-bottom: 1px;
     height: 6.5em;
     margin-left: -1em;
@@ -289,14 +290,10 @@ svg {
     border-left-width: 6.5em;
     line-height: 1.5em;
   }
-  td:first-child {
-    position: absolute;
-    margin-top: 3em;
-  }
-  .description::before {
+  td:last-child:not(:empty)::before {
     content: "\201c";
   }
-  .description::after {
+  td:last-child:not(:empty)::after {
     content: "\201d";
   }
   .branding,
@@ -332,23 +329,21 @@ svg {
   [style="border-color:#9e0000"] {
     clear: left;
   }
-  td:first-child {
-    overflow: hidden;
+  td:last-child {
     position: absolute;
+    overflow: hidden;
     bottom: 100%;
+    right: 0;
     left: 0;
-    height: 2em;
-    width: 100%;
+    height: 2rem;
     border: 1px solid transparent;
     color: #fff;
-    line-height: 1.75em;
+    font-size: 75%;
+    line-height: 1.875rem;
     text-align: center;
     text-overflow: ellipsis;
     text-shadow: 0 0 .25em #000;
     white-space: nowrap;
-  }
-  .description {
-    font-size: 75%;
   }
 }
 
@@ -407,9 +402,6 @@ svg {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-  table {
-    min-height: 48.375em;
   }
   tr {
     width: 10em;

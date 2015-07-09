@@ -41,9 +41,6 @@ html(lang="en-UK")
                   if subset === (color.type || "additional")
                     tr(style="border-color:#{color.value}")
                       td
-                        if color.name
-                          span.description= color.name
-                      td
                         i #
                         code= color.value.slice(1)
                       td
@@ -54,6 +51,7 @@ html(lang="en-UK")
                         i ,
                         = parseInt(color.value.slice(5, 7), 16)
                         i )
+                      td= color.name || ""
       footer.container(role="contentinfo")
         p.build
           | Made with 
