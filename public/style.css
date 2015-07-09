@@ -249,6 +249,12 @@ svg {
 
 }
 
+@media screen and (max-width: 19.99em) {
+  html {
+    font-size: 5vw;
+  }
+}
+
 @media screen and (max-width: 25.99em) {
   .container {
     padding: 1em;
