@@ -204,7 +204,7 @@ svg {
   tr {
     margin-bottom: 2em;
   }
-  #night-mode ~ main [style="border-color:#ffffff"] td:first-child {
+  #night-mode:not(:checked) ~ main [style="border-color:#ffffff"] td:first-child {
     border-color: #000;
   }
   #night-mode:checked ~ main [style="border-color:#000000"] td:first-child {
@@ -281,8 +281,7 @@ svg {
     padding-bottom: 1px;
   }
   tr {
-    display: flex;
-    flex-direction: column-reverse;
+    position: relative;
     margin-bottom: 1px;
     height: 6.5em;
     margin-left: -1em;
@@ -290,8 +289,9 @@ svg {
     border-left-width: 6.5em;
     line-height: 1.5em;
   }
-  td:first-child:empty::before {
-    content: "\a0";
+  td:first-child {
+    position: absolute;
+    margin-top: 3em;
   }
   .description::before {
     content: "\201c";
